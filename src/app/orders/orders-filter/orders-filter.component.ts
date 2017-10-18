@@ -13,6 +13,7 @@ export class OrdersFilterComponent implements OnInit {
   thisWeek: string
   allTime: string
   filter: string
+  value = 'all-time'
 
   constructor(private broadcaster: Broadcaster) { }
 

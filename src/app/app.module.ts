@@ -11,6 +11,8 @@ import { OrdersFilterComponent } from './orders/orders-filter/orders-filter.comp
 import { Broadcaster } from './shared/services/broadcaster';
 import { GetMockService } from './shared/services/get-mock.service';
 import { GetDateService } from './shared/services/get-date.service';
+import { OrdersEditComponent } from './orders/orders-edit/orders-edit.component';
+import { SearchPipe } from './orders/orders-list/orders-list-search.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { GetDateService } from './shared/services/get-date.service';
     OrdersComponent,
     OrdersListComponent,
     OrdersAddComponent,
-    OrdersFilterComponent
+    OrdersFilterComponent,
+    OrdersEditComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

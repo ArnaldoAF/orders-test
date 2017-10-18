@@ -46,7 +46,7 @@ export class OrdersAddComponent implements OnInit {
         {
           "user": String(this.form.get('user').value),
           "product": String(this.form.get('product').value),
-          "date": this.getDateService.today(),
+          "date": this.getDateService.today().todayUTC,
           "price": price,
           "quantity": Number(this.form.get('quantity').value)
         }

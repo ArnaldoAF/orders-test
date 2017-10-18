@@ -1,0 +1,54 @@
+<div #modal class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Order</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="editForm">
+          <div class="form-group-row">
+            <label for="user" class="col-4 col-form-label">User</label>
+            <select name="user" id="user" formControlName="user">
+              <option value="johny" selected>johny</option>
+              <option value="jacky">jacky</option>
+              <option value="nathaniel">nathaniel</option>
+              <option value="stamat">stamat</option>
+            </select>
+          </div>
+          <div class="form-group-row">
+            <label for="product" class="col-4 col-form-label">Product</label>
+            <select name="product" id="product" formControlName="product" [ngModel]="product" (ngModelChange)="onChange($event)">
+              <option value="games" selected>games</option>
+              <option value="books">books</option>
+              <option value="computers">computers</option>
+            </select>
+          </div>
+          <div class="form-group row" style="margin: 0;">
+            <label for="date" class="col-4 col-form-label">Date</label>
+            <input type="text" class="form-control col-5" readonly formControlName="date">
+          </div>
+          <div class="form-group row" style="margin: 0;">
+            <label for="price" class="col-4 col-form-label">Price</label>
+            <input type="text" class="form-control col-5" readonly formControlName="price">
+          </div>
+          <div class="form-group row" style="margin: 0;">
+            <label for="quantity" class="col-4 col-form-label">Quantity</label>
+            <input type="text" class="form-control col-5" formControlName="quantity" [ngClass]="CSSInvalidField('quantity')">
+            <div class="col-10 d-flex justify-content-end" [ngClass]="{'invalid-feedback': isInvalid('quantity')}">
+              <span [hidden]="!isInvalid('quantity')">
+                Please provide a valid number.
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="save(user)">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

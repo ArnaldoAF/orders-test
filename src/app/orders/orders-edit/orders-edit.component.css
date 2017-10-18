@@ -1,0 +1,12 @@
+button {
+  cursor: pointer;
+}
+
+select {
+  margin-left: 5px;
+}
+
+input {
+  height: 30px;
+  margin-left: 10px;
+}

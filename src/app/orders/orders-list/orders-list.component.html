@@ -1,25 +1,29 @@
-<table class="table table-striped table-hover table-responsive">
-  <thead class="thead-inverse">
-    <tr>
-      <th>User</th>
-      <th>Product</th>
-      <th>Date</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of usersList">
-      <th>{{ user.user }}</th>
-      <th>{{ user.product }}</th>
-      <th>{{ user.date }}</th>
-      <th>{{ user.price }}</th>
-      <th>{{ user.quantity }}</th>
-      <th>
-        <i class="fa fa-trash"></i>
-        <i class="fa fa-pencil"></i>
-      </th>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <input type="text" [(ngModel)]="search" style="width: 100%; margin-bottom: 10px;" placeholder="Search for names...">
+  <table class="table table-striped table-hover table-responsive">
+    <thead class="thead-inverse">
+      <tr>
+        <th>User</th>
+        <th>Product</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersList | searchPipe:'user,product':search">
+        <th>{{ user.user }}</th>
+        <th>{{ user.product }}</th>
+        <th>{{ user.date }}</th>
+        <th>{{ user.price }}</th>
+        <th>{{ user.quantity }}</th>
+        <th>
+          <i class="fa fa-trash" (click)="delete(user)"></i>
+          <i class="fa fa-pencil" (click)="update(user)"></i>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-orders-edit [user]="user" *ngIf="user" [usersList]="usersList"></app-orders-edit>
