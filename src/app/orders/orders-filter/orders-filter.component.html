@@ -1,0 +1,23 @@
+<div class="container jumbotron col-md-6 col-12">
+  <h5>Get orders from</h5>
+  <form>
+    <div class="form-check">
+      <label class="form-check-label col-6">
+        Today
+      </label>
+      <input class="form-check-input" type="radio" name="radio" id="today" value="today" [ngModel]="today" (ngModelChange)="onChange($event)">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label col-6">
+        This week
+      </label>
+      <input class="form-check-input" type="radio" name="radio" id="this-week" value="this-week" [ngModel]="thisWeek" (ngModelChange)="onChange($event)">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label col-6">
+        All time
+      </label>
+      <input class="form-check-input" type="radio" name="radio" id="all-time" value="all-time" [ngModel]="allTime" (ngModelChange)="onChange($event)" checked>
+    </div>
+  </form>
+</div>
