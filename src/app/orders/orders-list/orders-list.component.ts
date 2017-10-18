@@ -34,6 +34,7 @@ export class OrdersListComponent implements OnInit, AfterContentInit {
           return user.date === this.getDateService.today().todayUTC
         })
       } else {
+        this.usersList = this.filteredOrders
         const weekDays = this.getDateService.thisWeek()
         this.usersList = this.usersList.filter(user => {
           const userDate = new Date(user.date)
